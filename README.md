@@ -144,6 +144,8 @@ provide non-repeating random numbers.
 - `lower_limit`: the lowest allowed random number
 - `upper_limit`: the highest allowed random number
 
+.
+
     rame.get_number  # get a random number
                      # raises RandomMemoryExceeded if all numbers have
                      # been used
