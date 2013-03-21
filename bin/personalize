@@ -1,0 +1,14 @@
+#!/bin/sh
+# Shell-Wrapper for personalize.rb
+# adds ../lib to RUBYLIB
+mydir=`dirname $0`
+fp="$mydir/../lib"
+if [ -z "RUBYLIB" ] ; then
+  RUBYLIB="$fp:$RUBYLIB"
+else
+  RUBYLIB=$fp
+fi
+export RUBYLIB
+
+ruby $mydir/personalize.rb $*
+
