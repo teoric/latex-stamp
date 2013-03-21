@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/pivotal/LicenseFinder.git
+  revision: e0eba6fb24f80ee08ce943aee6c0dcc70e4e2384
+  specs:
+    license_finder (0.7.3)
+      bundler
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -8,3 +15,4 @@ PLATFORMS
 
 DEPENDENCIES
   babosa
+  license_finder!

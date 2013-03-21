@@ -29,7 +29,7 @@ EOF
   class VarHash
     class TeXVarError < StandardError
     end
-  
+
     def initialize(variables)
       @vars = {}
       variables.each do |k,v|
@@ -68,6 +68,7 @@ EOF
   def include_filepath(file)
     # add directory of file to tex's input directories so that includes
     # work
+    # TODO: use environent hash with popen instead?
     evars = %w[TEXINPUTS BSTINPUTS BIBINPUTS]
     old_vars = {}
     evars.each do |v|
