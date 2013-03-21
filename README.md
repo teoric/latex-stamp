@@ -13,8 +13,8 @@ could be kept together easily and without losing anonymity. They are
 placed here because I spent some time trying to find a simple solution.
 
 - using
-  [http://www.ctan.org/tex-archive/macros/latex/contrib/pdfpages](pdfpages)
-  to 'stamp' the questionnaires (I found the hint on [http://tex.stackexchange.com](Stack Exchange), but mislaid it.
+  [pdfpages](http://www.ctan.org/tex-archive/macros/latex/contrib/pdfpages)
+  to 'stamp' the questionnaires (I found the hint on [Stack Exchange](http://tex.stackexchange.com), but mislaid it.
 - using the LaTeX flag `-jobname` for generating 'nice' filenames,
 - adding the original path to the LaTeX environment so that you can
   include macros etc. from there and do not have to call the scripts
@@ -52,7 +52,7 @@ and C, i.e. e.g. `# A-7353`. If that is not what you want, you can
 customize the LaTeX template, and of course the script, which is very
 simple.
 
-Files are read from a [http://yaml.org/](YAML) file called
+Files are read from a [YAML](http://yaml.org/) file called
 `<GROUPNAME>.yaml` in the directory where the script is executed. It has
 the form
 
@@ -89,7 +89,7 @@ sets up a LaTeX tagger with a default template for stamping. You can
 also provide the `template` as a string. This template will be used to
 'stamp' on PDF files. `paperformat` must be a class option passed to the
 LaTeX document class of the template; the default template uses
-[http://www.ctan.org/tex-archive/macros/latex/contrib/koma-script/](KOMA-Script),
+[KOMA-Script](http://www.ctan.org/tex-archive/macros/latex/contrib/koma-script/),
 and hence accepts `a4paper`, `letterpaper` and many more. (Hint for
 hacks: the program does not check for the occurrence of commas.)
 
@@ -119,7 +119,7 @@ You can also pass a variable hash of the form:
 
 Variable names are converted to TeX command names:
 
-- the name is converted to a lower case ASCII 'slug' with [https://github.com/norman/babosa](Babosa), and transliterated according to German usage (i.e. `:Käsefüße` becomes `kaesefuesse`)
+- the name is converted to a lower case ASCII 'slug' with [Babosa](https://github.com/norman/babosa), and transliterated according to German usage (i.e. `:Käsefüße` becomes `kaesefuesse`)
 - anything but `[a-zA-Z]` is dropped
 
 The value is not escaped and can contain LaTeX code. You are warned if
