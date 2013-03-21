@@ -1,0 +1,10 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    babosa (0.3.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  babosa
