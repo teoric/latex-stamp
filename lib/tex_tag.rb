@@ -1,3 +1,4 @@
+# encoding: utf-8
 class TeXTag
     require "babosa"
     @tex_template = <<'EOF'
