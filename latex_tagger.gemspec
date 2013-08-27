@@ -4,6 +4,7 @@ Gem::Specification.new do |s|
   s.description = File.read(File.join(File.dirname(__FILE__), 'README.md'))
   s.version = "0.3"
   s.author  = "Teoric"
+  s.email = "code.teoric@gmail.com"
   s.homepage = "https://github.com/teoric/latex-stamp"
   s.requirements =
     [ 'a modern tex distribution with the LaTeX package pdfpages' ]

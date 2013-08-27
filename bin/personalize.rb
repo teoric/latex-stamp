@@ -24,15 +24,15 @@ OptionParser.new do |opts|
   opts.on("-T", "--[no-]test", "only produce one sheet") do |v|
         $options[:test] = v
   end
-  opts.on("--groups g1,g2,g3", "group prefices (at least one,","default: A,B,C)") do |list|
+  opts.on("--groups g1,g2,g3", Array, "group prefices (at least one,","default: A,B,C)") do |list|
     $options[:groups] = list
   end
   opts.on("-s n", "--size", OptionParser::DecimalInteger, "size of groups (default: 12)") do |i|
     $options[:group_size] = i
   end
 
-  opts.on("-t", "--template", "set LaTeX template from file") do |t|
-    if File.exists t and File.readable t
+  opts.on("-t", "--template t", "set LaTeX template from file") do |t|
+    if File.exists?(t) and File.readable?(t)
       $options[:template] = File.read t
     else
       STDERR.puts("Warning: File does not exist «%s»." % [t])
