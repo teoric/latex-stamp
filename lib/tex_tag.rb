@@ -83,20 +83,27 @@ EOF
   end
 
   private
-  def process_file(file, number, type="pdf")
+  def process_file(file, number, type="pdf", clean=false)
+    job = nil
     include_filepath(file) do
       file_root = File.basename(file, type="."+type.to_s)
       job = "%s-%s" % [number, file_root]
       IO.popen(["pdflatex", "-jobname", job ], mode="w") do |tex|
         yield tex
       end
+      if clean
+        ["aux", "log"].each do |ext|
+          File.unlink("#{job}.#{ext}")
+        end
+      end
     end
+    job
   end
 
   public
-  def tag_file(file, number, vars:nil, paperformat:nil)
+  def tag_file(file, number, vars: nil, paperformat: nil, clean: false)
     # tag file with number
-    process_file(file, number, type="pdf") do |tex|
+    process_file(file, number, type="pdf", clean=clean) do |tex|
       tex.write("\\def\\tagnumber{#{number}}")
       tex.write("\\\def\\filetotag{#{file}}")
       if vars
@@ -108,10 +115,10 @@ EOF
     end
   end
 
-  def cover_file(file, number, vars:nil)
+  def cover_file(file, number, vars: nil, clean: false)
     # generate cover with number from LaTeX template
     File.open(file,"r") do |f|
-      process_file(file, number, type=:tex) do |tex|
+      process_file(file, number, type=:tex, clean=clean) do |tex|
         tex.puts("\\def\\tagnumber{#{number}}")
         tex.puts("\\def\\filetotag{#{file}}")
         if vars
