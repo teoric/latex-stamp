@@ -13,13 +13,18 @@ Gem::Specification.new do |s|
   s.files = Dir['**/**']
   s.files.reject! do |fn|
     # STDERR.puts fn
-    fn =~ /(?:\.(?:aux|log|bbl|blg)|~)$/u or
+    fn =~ /(?:\.(?:aux|log|bbl|blg|gem)|~)$/u or
     fn =~ /USED/ or
     fn =~ /PDFs/ or
     fn =~ /RAND/ or
     fn =~ /^(?:A|B|C)-/
   end
-  s.executables = [ 'personalize.rb' ]
+  s.executables = [
+    'personalize.rb',
+    'print_pdf.rb',
+    'stamp-with-name.rb',
+    'stamp-with-page.rb',
+  ]
   s.test_files = Dir["test/test*.rb"]
   s.has_rdoc = false
 end
